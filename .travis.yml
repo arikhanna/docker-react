@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+  before_install:
+    - docker build -t arikhanna/docker-react -f dockerfile.dev .
+
+    script:
+      - docker run arikhanna/docker-react npm run test -- --coverage
